@@ -96,3 +96,17 @@
      color: #000;
      font-family: 'oswald', sans-serif;
  }
+ 
+ .contacts {
+     color:#fff;
+     padding: 8px 0 10px 3px;
+ }
+ 
+ .contacts:hover {
+    color: #000;
+    background: #fff;
+}
+
+.contactslist {
+    margin-top: 20px;
+}

@@ -11,7 +11,7 @@ var express         = require("express"),
     
     
 var url = process.env.DATABASEURL || "mongodb://localhost/portfolio";
-mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+mongoose.connect(url, {useMongoClient: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
