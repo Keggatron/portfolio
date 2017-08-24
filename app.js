@@ -9,8 +9,10 @@ var express         = require("express"),
     User            = require("./models/user"),
     Blog            = require("./models/blogPost");
     
-// mongoose.connect("mongodb://localhost/portfolio", {useMongoClient: true});
-mongoose.connect("mongodb://admin:admin@ds159033.mlab.com:59033/portfolio", {useMongoClient: true});
+    
+var url = process.env.DATABASEURL || "mongodb://localhost/portfolio";
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
