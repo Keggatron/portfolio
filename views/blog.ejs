@@ -1,6 +1,51 @@
 <% include ../partials/header %>
 
-<div class="container main"> 
-    <h1>this is the blog page</h1>
+
+<div class="container window">
+    <div class="container header"> 
+        <h1>Blog Posts</h1>
+        <div class="ui items">
+            <% blogs.forEach(function(post){ %>
+              <div class="ui divider"></div>
+              <div class="item">
+                <div class="ui small image">
+                  <img src="<%= post.image %>">
+                </div>
+                <div class="content">
+                  <div class="header"><a href="/blog/<%= post._id%>"><%= post.title %></a></div>
+                  <div class="meta">
+                    <span class="created"><%= post.created.toDateString() %></span>
+                  </div>
+                  <div class="body">
+                    <p><%= post.body.substring(0,600) %>...</p>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+         </div>
+    </div>
+
+   <% if(currentUser){ %>
+    <div class="row ui main text container blog-post">
+        <h1 class="header">Create a new blog post</h1>
+            <form class="ui form" action="/blog" method="POST">
+                <div class="field">
+                    <input type="text" name="blog[title]" placeholder="title"></input>
+                </div>
+                <div class="field">
+                    <input type="text" name="blog[image]" placeholder="image"></input>
+                </div>
+                <div class="field">
+                    <textarea class="form-control" name="blog[body]" placeholder="blog post" ></textarea>
+                </div>
+                <button class="huge ui secondary button">
+                  Okay
+                </button>
+            </form>
+        
+    </div>
+    <% } %>
+    
+    
 </div>
 <% include ../partials/footer %>    

@@ -48,13 +48,13 @@
 
 
 
-.main {
+.window {
     width: 80%;
     color: black;
     float:right;
 }
 
-.main h1 {
+.window h1 {
     font-weight: 500; 
     color: #000;
     font-family: 'oswald', sans-serif;
@@ -64,3 +64,35 @@
     width: 50%;
 }
 
+.blog-post{
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    text-align: center;
+    margin-top: 7em;
+}
+
+.ui.items{
+    margin-top: 3em;
+}
+
+#delete{
+    display: inline;
+}
+
+.blurb{
+    font-family: 'oswald', sans-serif;
+    margin-top: 20px;
+    width: 75%;
+    color:black;
+}
+
+.landing{
+    margin-top: 20%;
+}
+ .link{
+     color: #000;
+     font-family: 'oswald', sans-serif;
+ }
