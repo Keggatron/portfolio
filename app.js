@@ -9,7 +9,8 @@ var express         = require("express"),
     User            = require("./models/user"),
     Blog            = require("./models/blogPost");
     
-mongoose.connect("mongodb://localhost/portfolio", {useMongoClient: true});
+// mongoose.connect("mongodb://localhost/portfolio", {useMongoClient: true});
+mongoose.connect("mongodb://admin:admin@ds159033.mlab.com:59033/portfolio", {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
@@ -113,22 +114,22 @@ app.delete("/blog/:id", middleware.isLoggedIn, function(req,res){
     });
 });
 
-// Auth routes
-app.get("/register", function(req,res){
-    res.render("register");
-});
+// // Auth routes
+// app.get("/register", function(req,res){
+//     res.render("register");
+// });
 
-app.post("/register", function(req,res){
-    User.register(new User({username: req.body.username}), req.body.password, function(err,user){
-        if(err){
-            console.log(err);
-            return res.render("register");
-        }            
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/secret");
-        });
-    });
-});
+// app.post("/register", function(req,res){
+//     User.register(new User({username: req.body.username}), req.body.password, function(err,user){
+//         if(err){
+//             console.log(err);
+//             return res.render("register");
+//         }            
+//         passport.authenticate("local")(req, res, function(){
+//             res.redirect("/secret");
+//         });
+//     });
+// });
 
 app.get("/login", function(req, res){
     res.render("login");
