@@ -127,3 +127,10 @@ a {
 }
 }
 
+.landing-image {
+  /*height: 400px;*/
+  /*width: 711px;*/
+  width:65%;
+  margin: 0 auto;
+  display: block;
+}
